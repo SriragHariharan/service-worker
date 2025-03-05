@@ -14,6 +14,16 @@ if(navigator.serviceWorker){
 }
 ```
 
+We can add a scope for service workers to cache only specific folders or directories.
+```javascript
+if(navigator.serviceWorker){
+    navigator.serviceWorker
+    .register("./sw.js", {scope: "/app/")
+    .then(resp => console.log("Service worker registered successfully"))
+    .catch(err => console.error("Error registering service worker", err))
+}
+```
+
 _**Note:** Check the application tab of our browser and go to service workers section and check if service workers are registered._
 
 _**Working:** When our HTML page is loaded, the script.js file will get executed and the script.js file will register the service worker._
